@@ -1,19 +1,14 @@
-class Intern
-  attr_reader :name,
-              :id,
-              :hourly_rate
+require_relative './employee'
+
+class Intern < Employee
+  attr_reader :hourly_rate
 
   def initialize(name, id, hourly_rate)
-    @name = name
-    @id = id
+    super(name, id)
     @hourly_rate = hourly_rate
   end
 
   def total_compensation
     hourly_rate * 2000
-  end
-
-  def benefits
-    ['PTO', 'parental leave']
   end
 end

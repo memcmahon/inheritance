@@ -1,21 +1,18 @@
-class Ceo
-  attr_reader :name,
-              :id,
-              :base_salary,
+require_relative './employee'
+
+class Ceo < Employee
+  attr_reader :base_salary,
               :bonus
 
   def initialize(name, id, base_salary, bonus)
-    @name = name
-    @id = id
     @base_salary = base_salary
     @bonus = bonus
+    super(name, id)
+    @benefits << 'health insurance'
   end
 
-  def total_compensation
-    base_salary + bonus
-  end
-
-  def benefits
-    ['PTO', 'parental leave', 'health insurance']
-  end
+  # def benefits
+  #   binding.pry
+  #   super << 'health insurance'
+  # end
 end

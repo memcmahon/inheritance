@@ -29,4 +29,20 @@ class InternTest < Minitest::Test
 
     assert_equal ['PTO', 'parental leave'], nile.benefits
   end
+
+  def test_it_raises_error_for_base_salary
+    nile = Intern.new('Nile', 1, 15.35)
+
+    assert_raises NotImplementedError do
+      nile.base_salary
+    end
+  end
+
+  def test_it_raises_error_for_bonus
+    nile = Intern.new('Nile', 1, 15.35)
+
+    assert_raises NotImplementedError do
+      nile.bonus
+    end
+  end
 end
